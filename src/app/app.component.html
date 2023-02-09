@@ -1,0 +1,13 @@
+<div class="fader" *ngIf="planetsDataService.isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-drawer-container class="container">
+  <mat-drawer mode="side" opened>
+    <app-planet-selector [planets]="planets" (changePlanet)="setSelectedPlanet($event)"></app-planet-selector>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <app-planet-table [planets]="selectedPlanet"></app-planet-table>
+  </mat-drawer-content>
+</mat-drawer-container>
